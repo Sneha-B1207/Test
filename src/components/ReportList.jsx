@@ -24,7 +24,6 @@ const ReportItem = memo(({ report, isSelected, onSelect }) => (
 ));
 
 const ReportList = ({ paginatedReports, selectedIds, onSelect }) => {
-  // Use a Set for faster lookup performance
   const selectedSet = useMemo(() => new Set(selectedIds), [selectedIds]);
 
   return (

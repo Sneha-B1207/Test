@@ -1,7 +1,7 @@
 import { Box, Button, TextField } from '@mui/material';
 import React from 'react'
 
-const ReportAddModel = ({search,setSearch,setPage,onOpenModal}) => {
+const ReportSearch = ({search,setSearch,setPage,onOpenModal}) => {
   return (
     <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
         <TextField
@@ -21,4 +21,4 @@ const ReportAddModel = ({search,setSearch,setPage,onOpenModal}) => {
   )
 }
 
-export default ReportAddModel
+export default ReportSearch

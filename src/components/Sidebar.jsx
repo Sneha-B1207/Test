@@ -3,7 +3,7 @@ import { useState, useCallback, useMemo } from 'react';
 import { Box, Pagination, Typography } from '@mui/material';
 import { useDashboard } from '@/context/DashboardContext';
 import ReportList from './ReportList';
-import ReportAddModel from './ReportAddModel';
+import ReportSearch from './ReportSearch';
 
 export default function Sidebar({ onOpenModal }) {
   const { reports, selectedIds, toggleSelect } = useDashboard();
@@ -45,7 +45,7 @@ export default function Sidebar({ onOpenModal }) {
         Select Report Dashboard
       </Typography>
       
-      <ReportAddModel 
+      <ReportSearch 
         search={search} 
         setSearch={setSearch} 
         setPage={setPage} 

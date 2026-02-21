@@ -6,29 +6,10 @@ import {
 } from 'chart.js';
 import ReportCard from './ReportCard';
 import ReportInnerCard from './ReportInnerCard';
-
+import { stackedBarData, donutData } from '../data/chartsData';
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
 export default function DashboardView() {
-
-
-  const stackedBarData = {
-    labels: ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
-    datasets: [
-      { label: 'On Watch', data: [4, 7, 3, 8, 9, 5], backgroundColor: '#4e73df' },
-      { label: 'Unacknowledged', data: [5, 3, 4, 2, 4, 3], backgroundColor: '#d1d3e2' },
-      { label: 'In Process', data: [5, 3, 4, 4, 3, 5], backgroundColor: '#b19cd9' },
-    ],
-  };
-
-  const donutData = {
-    labels: ['Open', 'In Process', 'Acknowledged', 'On Watch'],
-    datasets: [{
-      data: [32, 23, 23, 20],
-      backgroundColor: ['#4e73df', '#b19cd9', '#858796', '#eaecf4'],
-      hoverOffset: 4
-    }]
-  };
 
   return (
     <Box sx={{ flexGrow: 1, p: 3, bgcolor: '#e7edf7', overflowY: 'auto', width: '96%' }}>
@@ -37,7 +18,7 @@ export default function DashboardView() {
       </Grid>
 
     <Box sx={{ flexGrow: 1, p: 3, bgcolor: '#ffffff', overflowY: 'auto', width: '96%' }}>
-    <Grid container spacing={2} mb={2}>
+      <Grid container spacing={2} mb={2}>
         <ReportInnerCard /> 
       </Grid>
       <Grid container spacing={2}>

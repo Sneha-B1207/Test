@@ -1,0 +1,15 @@
+[
+  { "id": 1, "title": "Number of Open Alerts", "subtitle": "Active alerts", "kpiValue": "84" },
+  { "id": 2, "title": "Closing Rate %", "subtitle": "Efficiency", "kpiValue": "44.5%" },
+  { "id": 3, "title": "Oldest Unacknowledged Alert", "subtitle": "Time pending", "kpiValue": "128 Days" },
+  { "id": 4, "title": "Average Resolution Time", "subtitle": "Process speed", "kpiValue": "12 hrs" },
+  { "id": 5, "title": "System Uptime", "subtitle": "Reliability", "kpiValue": "99.9%" },
+  { "id": 6, "title": "Critical Incidents", "subtitle": "Urgent issues", "kpiValue": "3" },
+  { "id": 7, "title": "User Feedback Score", "subtitle": "Satisfaction", "kpiValue": "4.8/5" },
+  { "id": 8, "title": "Weekly Growth", "subtitle": "Scaling", "kpiValue": "+12%" },
+  { "id": 9, "title": "Pending Tasks", "subtitle": "Workload", "kpiValue": "25" },
+  { "id": 10, "title": "Active Sessions", "subtitle": "Traffic", "kpiValue": "1,042" },
+  { "id": 11, "title": "API Response Time", "subtitle": "Performance", "kpiValue": "120ms" },
+  { "id": 12, "title": "Data Backup Status", "subtitle": "Security", "kpiValue": "Synced" },
+  { "id": 13, "title": "New Subscriptions", "subtitle": "Acquisition", "kpiValue": "45" }
+]
