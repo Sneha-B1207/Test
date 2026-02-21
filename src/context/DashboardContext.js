@@ -64,7 +64,7 @@ export function DashboardProvider({ children }) {
 export const useDashboard = () => {
   const context = useContext(DashboardContext);
   if (!context) {
-    throw new Error("useDashboard must be used within a DashboardProvider");
+    throw new Error("Error!!!!!!!!!!!!!!!!");
   }
   return context;
 };
