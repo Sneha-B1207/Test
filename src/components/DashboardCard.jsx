@@ -17,7 +17,7 @@ const DashboardCard = () => {
     <Box sx={{ 
     flexGrow: 1, 
     p: 0, 
-    bgcolor: "#F6F0FC",
+    bgcolor: "#efebf7",
     height: 'auto', 
     overflowY: 'auto' 
   }}>

@@ -21,9 +21,9 @@ export default function Home() {
   }, [addReport]);
 
   return (
-    <Box component="div" sx={{ minHeight: "100vh",bgcolor: "#F6F0FC", }}>
+    <Box component="div" sx={{ minHeight: "100vh",bgcolor: "#efebf7", }}>
       <Navbar />
-      <Box component="section" sx={{ px: 3, py: 2,bgcolor: "#F6F0FC",  }}>
+      <Box component="section" sx={{ px: 3, py: 2,bgcolor: "#F6gF0FC",  }}>
         <DashboardCard />
       </Box>
       <Box 
@@ -34,7 +34,7 @@ export default function Home() {
           pb: 3, 
           gap: 2, 
           alignItems: 'flex-start', 
-          bgcolor: "#F6F0FC",
+          bgcolor: "#efebf7",
         }}
       >
         <Box component="aside" sx={{ flexShrink: 0 }}>
