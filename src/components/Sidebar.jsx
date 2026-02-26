@@ -1,12 +1,13 @@
 'use client';
 import React, { useState, useMemo, memo } from 'react';
-import { Box, Button, Pagination, TextField, Typography,Checkbox, Grid, Card, LinearProgress } from '@mui/material';
-import { useDashboard } from '@/context/DashboardContext';
-import { List, ListItemButton, ListItemText, Radio } from '@mui/material';
+import { Box, Button, Pagination, TextField, Typography,Checkbox } from '@mui/material';
+import { useDashboardActions, useDashboardState } from '@/context/DashboardContext';
+import { List, ListItemButton, ListItemText } from '@mui/material';
 
 
 export default function Sidebar({ onOpenModal }) {
-  const { reports,activeReport } = useDashboard();
+  const { reports, activeId } = useDashboardState();
+const { selectReport } = useDashboardActions();
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const itemsPerPage = 12;
@@ -116,9 +117,9 @@ const ReportItem = memo(({ report, isSelected, onSelect }) => {
     </ListItemButton>
   );
 });
-
-const ReportList = ({ paginatedReports }) => {
-  const { activeReport, selectReport } = useDashboard();
+const ReportList = memo(({ paginatedReports }) => {
+  const { activeId } = useDashboardState();
+  const { selectReport } = useDashboardActions();
 
   return (
     <List sx={{ flexGrow: 1, overflowY: 'auto', mt: 1 }}>
@@ -126,11 +127,11 @@ const ReportList = ({ paginatedReports }) => {
         <ReportItem 
           key={report.id} 
           report={report} 
-          isSelected={activeReport?.id === report.id} 
-          onSelect={selectReport} 
+          isSelected={activeId === report.id}
+          onSelect={selectReport}
         />
       ))}
     </List>
   );
-};
+});
 

@@ -1,12 +1,16 @@
 'use client';
 import React from 'react';
 import { Box, Grid, Card, Typography, LinearProgress } from '@mui/material';
-import { useDashboard } from '@/context/DashboardContext';
+import {  useDashboardState } from '@/context/DashboardContext';
 import { AccessTime, CheckCircle, Notifications } from '@mui/icons-material';
 
 
 const DashboardCard = () => {
-    const { activeReport } = useDashboard();
+    const { reports, activeId } = useDashboardState();
+
+    const activeReport = React.useMemo(() => {
+      return reports.find(r => r.id === activeId);
+    }, [reports, activeId]);
       const kpis = [
         { title: 'Open Alerts', val: activeReport?.metrics?.openAlerts || 0, icon: <Notifications />, col: '#4e73df' },
         { title: 'Closing Rate %', val: `${activeReport?.metrics?.closingRate || 0}%`, icon: <CheckCircle />, col: '#1cc88a' },
@@ -38,7 +42,7 @@ const DashboardCard = () => {
                       sx={{ height: 8, borderRadius: 5 }} 
                     />
                   </Box>
-          </Card>
+            </Card>
 
         </Grid>
       {kpis.map((item, i) => (
@@ -53,8 +57,6 @@ const DashboardCard = () => {
         </Grid>
       ))}
     </Grid>
-
-   
   </Box>
   )
 }

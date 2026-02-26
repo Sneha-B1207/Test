@@ -1,9 +1,8 @@
 'use client';
 import React, { useMemo } from 'react';
 import { Box, Grid, Card, Typography } from '@mui/material';
-import { Notifications, CheckCircle, AccessTime } from '@mui/icons-material';
 import { Bar, Doughnut } from 'react-chartjs-2';
-import { useDashboard } from '@/context/DashboardContext';
+import { useDashboard, useDashboardState } from '@/context/DashboardContext';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,7 +24,11 @@ ChartJS.register(
   Legend
 );
 const DashboardView = () => {
-  const { activeReport } = useDashboard();
+  const { reports, activeId } = useDashboardState();
+
+const activeReport = useMemo(() => {
+  return reports.find(r => r.id === activeId);
+}, [reports, activeId]);
   const barOptions = {
       maintainAspectRatio: false,
       responsive: true,
@@ -53,8 +56,7 @@ const DashboardView = () => {
     };
 
   const barChartConfig = useMemo(() => {
-    if (!activeReport?.barChartData) return { labels: [], datasets: [] };
-    
+    if (!activeReport?.barChartData) return { labels: [], datasets: [] }; 
     return {
       labels: ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
       datasets: [
@@ -90,13 +92,10 @@ const DashboardView = () => {
     );
   }
 
-
-
 return (
   <Box sx={{ 
     flexGrow: 1, 
     p: 3, 
-    // bgcolor: '#f2f6fc', 
     height: '100vh', 
     overflowY: 'auto' 
   }}>

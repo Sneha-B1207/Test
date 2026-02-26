@@ -21,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 |------|---------|
 | **React 19 (Next.js)** | UI Library |
 | **Material UI (MUI)** | Component Library & Theming |
-| **Chart.js** | nteractive Data Visualizations |
+| **Chart.js** | interactive Data Visualizations |
 | **LocalStorage** | Client-side Data Persistence |
 
 ## Project structur 

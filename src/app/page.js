@@ -1,24 +1,26 @@
 'use client';
 import React, { useState, useCallback } from 'react';
-import { Box, Snackbar, Alert, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Box, Snackbar, Alert, AppBar, Toolbar, Typography } from '@mui/material';
 import Sidebar from '@/components/Sidebar';
 import DashboardView from '@/components/DashboardView';
 import ReportModal from '@/components/ReportModal';
-import { useDashboard } from '@/context/DashboardContext';
+import { useDashboardActions } from '@/context/DashboardContext';
 import { Notifications } from '@mui/icons-material';
-import {  IconButton, Avatar } from '@mui/material';
+import {  IconButton } from '@mui/material';
 import DashboardCard from '@/components/DashboardCard';
 
-export default function Home() {
-  const { addReport } = useDashboard();
+const Home=() =>{
+  const {addReport}  = useDashboardActions();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleAdd = useCallback((newReport) => {
+  const handleAdd = (newReport) => {
     addReport(newReport);
     setIsModalOpen(false); 
     setSuccess(true);    
-  }, [addReport]);
+  };
+
+
 
   return (
     <Box component="div" sx={{ minHeight: "100vh",bgcolor: "#efebf7", }}>
@@ -45,13 +47,14 @@ export default function Home() {
           <DashboardView />
         </Box>
       </Box>
-      <ReportModal open={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleAdd} />
+      <ReportModal open={isModalOpen} onClose={()=>setIsModalOpen(false)} onSubmit={handleAdd}/>
       <Snackbar open={success} autoHideDuration={3000} onClose={() => setSuccess(false)}>
         <Alert severity="success" variant="filled">Report synchronized!</Alert>
       </Snackbar>
     </Box>
   );
 }
+export default Home;
 
 const Navbar = () => (
   <AppBar 

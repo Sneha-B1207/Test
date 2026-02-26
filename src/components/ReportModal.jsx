@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button } from '@mui/material';
 
-export default function ReportModal({ open, onClose, onSubmit }) {
+const ReportModal=({ open, onClose, onSubmit })=>{
+  console.log("Model is rendering 1")
   const [form, setForm] = useState({ title: '', subtitle: '' });
   const [errors, setErrors] = useState({ title: '', subtitle: '' });
 
@@ -49,6 +50,7 @@ export default function ReportModal({ open, onClose, onSubmit }) {
     };
 
     onSubmit(newReport);
+    console.log("Hello")
     setForm({ title: '', subtitle: '' });
     setErrors({ title: '', subtitle: '' }); 
     onClose();
@@ -79,4 +81,5 @@ export default function ReportModal({ open, onClose, onSubmit }) {
       </DialogActions>
     </Dialog>
   );
-}
+};
+export default ReportModal;
